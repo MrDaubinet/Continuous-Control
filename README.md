@@ -3,8 +3,8 @@
 [image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
 [image2]: https://3.bp.blogspot.com/-I6UKhtpt-pI/WzP8ThUgMRI/AAAAAAAADFQ/mmbmu0YtDeAGT1RJj0pDPPm_jYyyYYg0gCLcBGAs/s1600/image8.gif "Robots"
 [image3]: https://user-images.githubusercontent.com/10624937/42135610-c37e0292-7d12-11e8-8228-4d3585f8c026.gif "Pendulum"
-[image4]: https://github.com/MrDaubinet/Continuous-Control/blob/master/scores.png "Graph"
-[image5]: https://github.com/MrDaubinet/Continuous-Control/blob/master/agent_result.gif "Agent"
+[image4]: images/scores.png "Graph"
+[image5]: images/agent_result.gif "Agent"
 
 # Project 2: Continuous Control
 ## Train an agent to hold a set of balls
@@ -61,7 +61,7 @@ Import the Unity environment and create an env object
 from unityagents import UnityEnvironment
 env = UnityEnvironment(file_name='location of reacher.exe')
 ```
-Info about the environment is printed out through the ```Info()``` class found [here]()  as seen below:
+Info about the environment is printed out through the ```Info()``` class found [here](https://github.com/MrDaubinet/Continuous-Control/blob/master/info.py)  as seen below:
 ```
 Unity Academy name: Academy
 Number of Brains: 1
@@ -126,7 +126,7 @@ I based my code off of [this](https://github.com/udacity/deep-reinforcement-lear
 
 I copied the Actor and Critic models, as [found here](https://github.com/udacity/deep-reinforcement-learning/blob/master/ddpg-pendulum/model.py), but I adapted the number of hidden unites to 256 and added another layer of batch normalization. I copied the agent code, [found here](https://github.com/udacity/deep-reinforcement-learning/blob/master/ddpg-pendulum/ddpg_agent.py), then changed it to accomidate 20 environments. 
 
-The ```Agent()``` code can be [found here]() resulting DDPG algorithm can be seen below:
+The ```Agent()``` code can be [found here](https://github.com/MrDaubinet/Continuous-Control/blob/master/agent.py) resulting DDPG algorithm can be seen below:
 ```python
 def train(env, agent, n_episodes=500, max_t=int(1000), train_mode=True, solved_score=30.0, consec_episodes=100, print_every=1, actor_path='actor_ckpt.pth', critic_path='critic_ckpt.pth'):
         """Deep Deterministic Policy Gradient (DDPG)
@@ -200,7 +200,6 @@ def train(env, agent, n_episodes=500, max_t=int(1000), train_mode=True, solved_s
 
 ## 4. Results
 My algorithm was able to solve the environment in 23 episodes with an average of 31.8 over the first 100 episodes. Check the graph below to see how it trained.
-![real robots][image4]
 ```
 Episode 90      Duration: 290.0         Mean Episode Scores: 38.52      Mean Consecutive Scores: 31.10
 Episode 91      Duration: 290.0         Mean Episode Scores: 38.89      Mean Consecutive Scores: 31.19
@@ -215,26 +214,17 @@ Episode 99      Duration: 301.0         Mean Episode Scores: 39.09      Mean Con
 Episode 100     Duration: 301.0         Mean Episode Scores: 38.99      Mean Consecutive Scores: 31.83
 ```
 
-```
-# plot the scores
-fig = plt.figure()
-ax = fig.add_subplot(111)
-plt.plot(np.arange(len(scores)), scores, label='DDPG')
-plt.plot(np.arange(len(scores)), avgs, c='r', label='moving avg')
-plt.ylabel('Score')
-plt.xlabel('Episode #')
-plt.legend(loc='upper left');
-plt.show()
-```
+![real robots][image4]
+
+The final agent at work:
 ![Result Agent][image5]
-![Pendulum][image3]
 
 ## 5. Ideas for Future Work
 * **Hyperparameter optimization** - Most algorithms can be tweeked to perform better for specific environments when by changeing the various hyper parameters. This could be investigated to find a more effective agent.
 * **Priority Experience Replay** - Prioritized experience replay selects experiences based on a priority value that is correlated with the magnitude of error. This replaces the random selection of experiences with an approach that is more intelligent, as described in [this paper](https://arxiv.org/pdf/1511.05952.pdf). 
 
 # Get Started
-1. Install Anaconda from [here](). 
+1. Install Anaconda from [here](https://www.anaconda.com/). 
 2. Create a new evironment from the environment file in this repository with the command 
     ```
     conda env create -f environment.yml
