@@ -3,8 +3,8 @@
 [image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
 [image2]: https://3.bp.blogspot.com/-I6UKhtpt-pI/WzP8ThUgMRI/AAAAAAAADFQ/mmbmu0YtDeAGT1RJj0pDPPm_jYyyYYg0gCLcBGAs/s1600/image8.gif "Robots"
 [image3]: https://user-images.githubusercontent.com/10624937/42135610-c37e0292-7d12-11e8-8228-4d3585f8c026.gif "Pendulum"
-[image4]:  "Graph"
-[image5]:  "Agent"
+[image4]: https://github.com/MrDaubinet/Continuous-Control/blob/master/scores.png "Graph"
+[image5]: https://github.com/MrDaubinet/Continuous-Control/blob/master/agent_result.gif "Agent"
 
 # Project 2: Continuous Control
 ## Train an agent to hold a set of balls
@@ -14,6 +14,7 @@
 
 # Background
 Deep Reinforcement Learning is a trending new algorithmic approach to solve complex learning tasks. The purpose of this project is to train an agent to solve real world "Robotic Control Systems" problems like the one below:
+
 ![real robots][image2]
 
 But in an artificial environment.
@@ -226,10 +227,20 @@ plt.legend(loc='upper left');
 plt.show()
 ```
 ![Result Agent][image5]
+![Pendulum][image3]
 
-## 5. Conclusion
-
-
-## 6. Ideas for Future Work
+## 5. Ideas for Future Work
 * **Hyperparameter optimization** - Most algorithms can be tweeked to perform better for specific environments when by changeing the various hyper parameters. This could be investigated to find a more effective agent.
 * **Priority Experience Replay** - Prioritized experience replay selects experiences based on a priority value that is correlated with the magnitude of error. This replaces the random selection of experiences with an approach that is more intelligent, as described in [this paper](https://arxiv.org/pdf/1511.05952.pdf). 
+
+# Get Started
+1. Install Anaconda from [here](). 
+2. Create a new evironment from the environment file in this repository with the command 
+    ```
+    conda env create -f environment.yml
+    ```
+3. Run ```python main.py```
+
+    Remove the comments in main to train and run the baseline.
+
+4. Watch the agent hold its balls.
